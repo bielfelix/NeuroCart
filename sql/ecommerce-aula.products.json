@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790373"
+  },
+  "id": 1,
+  "name": "Fones de Ouvido Sem Fio",
+  "category": "eletrônicos",
+  "price": 129.99,
+  "color": "preto"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790374"
+  },
+  "id": 2,
+  "name": "Relógio Inteligente",
+  "category": "eletrônicos",
+  "price": 199.99,
+  "color": "prata"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790375"
+  },
+  "id": 3,
+  "name": "Caixa de Som Bluetooth",
+  "category": "eletrônicos",
+  "price": 89.99,
+  "color": "azul"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790376"
+  },
+  "id": 4,
+  "name": "Camiseta Estampada",
+  "category": "vestuário",
+  "price": 49.99,
+  "color": "branco"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790377"
+  },
+  "id": 5,
+  "name": "Calça Jeans Slim",
+  "category": "vestuário",
+  "price": 99.99,
+  "color": "azul"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790378"
+  },
+  "id": 6,
+  "name": "Tênis Esportivo",
+  "category": "calçados",
+  "price": 149.99,
+  "color": "vermelho"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b790379"
+  },
+  "id": 7,
+  "name": "Sandália Casual",
+  "category": "calçados",
+  "price": 69.99,
+  "color": "bege"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b79037a"
+  },
+  "id": 8,
+  "name": "Boné Estiloso",
+  "category": "acessórios",
+  "price": 39.99,
+  "color": "preto"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b79037b"
+  },
+  "id": 9,
+  "name": "Mochila Executiva",
+  "category": "acessórios",
+  "price": 159.99,
+  "color": "cinza"
+},
+{
+  "_id": {
+    "$oid": "69deb63cb30f106a7b79037c"
+  },
+  "id": 10,
+  "name": "Óculos de Sol",
+  "category": "acessórios",
+  "price": 89.99,
+  "color": "marrom"
+}]
