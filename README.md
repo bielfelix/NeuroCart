@@ -132,7 +132,7 @@ These limitations are part of the reason I keep this repository as an engineerin
 
 ## Project background
 
-This repository originated from a recommendation-system reference implementation in the Software Engineering with Applied AI source material published by UNIPDS and Erick Wendel. I used that base to implement and evaluate the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
+This repository originated from a recommendation-system reference implementation in the external source material published by UNIPDS and Erick Wendel. I used that base to implement and evaluate the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
 
 Upstream source repository:
 https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
@@ -146,4 +146,4 @@ Brazilian Portuguese version: [README.pt-BR.md](README.pt-BR.md)
 
 ## License and distribution
 
-The upstream course repository is published under CC BY-NC-ND 4.0. Its LICENSE.md states that modified or adapted versions may not be distributed under the NoDerivatives condition. This repository is therefore not presented as a permissively licensed open-source derivative. See [NOTICE.md](NOTICE.md) for the provenance and licensing note.
+The upstream source repository is published under CC BY-NC-ND 4.0. Its LICENSE.md states that modified or adapted versions may not be distributed under the NoDerivatives condition. This repository is therefore not presented as a permissively licensed open-source derivative. See [NOTICE.md](NOTICE.md) for the provenance and licensing note.
