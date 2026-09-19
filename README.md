@@ -2,7 +2,7 @@
 
 NeuroCart is a browser-based product recommendation prototype that combines a Node.js API, MongoDB and a TensorFlow.js model trained from purchase history.
 
-The project is useful as a compact study of the full recommendation flow: product and user data are served by an API, the browser prepares feature vectors, model training runs in a Web Worker, and the UI displays ranked recommendations without blocking the main thread.
+The project is useful as a compact technical implementation of the full recommendation flow: product and user data are served by an API, the browser prepares feature vectors, model training runs in a Web Worker, and the UI displays ranked recommendations without blocking the main thread.
 
 ## What is implemented
 
@@ -52,7 +52,7 @@ The API is responsible for data access. Model training and inference currently h
 6. The selected user is paired with every product.
 7. Prediction scores are sorted to generate recommendations.
 
-This is intentionally a learning-oriented implementation. It is not presented as a production recommendation service.
+This is intentionally a reference-oriented implementation. It is not presented as a production recommendation service.
 
 ## Running locally
 
@@ -132,9 +132,9 @@ These limitations are part of the reason I keep this repository as an engineerin
 
 ## Project background
 
-This repository started from a recommendation-system exercise from the Software Engineering with Applied AI course material published by UNIPDS and Erick Wendel. I used that base to explore the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
+This repository started from a recommendation-system exercise from the Software Engineering with Applied AI source material published by UNIPDS and Erick Wendel. I used that base to explore the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
 
-Upstream learning material:
+Upstream technical work material:
 https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
 
 The original course attribution is preserved here intentionally.
