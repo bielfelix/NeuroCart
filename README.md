@@ -52,7 +52,7 @@ The API is responsible for data access. Model training and inference currently h
 6. The selected user is paired with every product.
 7. Prediction scores are sorted to generate recommendations.
 
-This is intentionally a reference-oriented implementation. It is not presented as a production recommendation service.
+This is intentionally a technical reference implementation. It is not presented as a production recommendation service.
 
 ## Running locally
 
@@ -128,13 +128,13 @@ npm run check
 - Authentication, authorization and multi-tenant isolation are outside the scope of this prototype.
 - Product candidate retrieval is exhaustive. A larger catalog would require a separate retrieval stage before model scoring.
 
-These limitations are part of the reason I keep this repository as an engineering experiment rather than describing it as a production system.
+These limitations are part of the reason I keep this repository as an engineering prototype rather than describing it as a production system.
 
 ## Project background
 
 This repository started from a recommendation-system exercise from the Software Engineering with Applied AI source material published by UNIPDS and Erick Wendel. I used that base to explore the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
 
-Upstream technical work material:
+Upstream source repository:
 https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
 
 The original course attribution is preserved here intentionally.
