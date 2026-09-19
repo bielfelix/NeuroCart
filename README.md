@@ -137,7 +137,7 @@ This repository started from a recommendation-system exercise from the Software 
 Upstream source repository:
 https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
 
-The original course attribution is preserved here intentionally.
+The original source attribution is preserved here intentionally.
 
 ## Language
 
