@@ -1,163 +1,144 @@
 # NeuroCart
 
-NeuroCart is an AI-powered e-commerce intelligence platform designed to predict user preferences and deliver highly personalized shopping experiences.
+NeuroCart is a browser-based product recommendation prototype that combines a Node.js API, MongoDB and a TensorFlow.js model trained from purchase history.
 
-By leveraging machine learning models, NeuroCart analyzes user behavior, interactions, and purchase patterns to anticipate what customers are most likely to buy — before they even search for it.
+The project is useful as a compact study of the full recommendation flow: product and user data are served by an API, the browser prepares feature vectors, model training runs in a Web Worker, and the UI displays ranked recommendations without blocking the main thread.
 
-## 🚀 Key Features
+## What is implemented
 
-- 🤖 Machine Learning recommendation engine
-- 🧠 Behavioral analysis and preference prediction
-- 🛒 Smart product suggestions in real time
-- 📊 Scalable architecture with API integration
-- ⚡ Optimized for performance and modern e-commerce systems
-
-## 🧩 How It Works
-
-NeuroCart collects and processes user interaction data, including:
-- Browsing behavior
-- Purchase history
-- Product engagement
-
-Using this data, it trains intelligent models (e.g., TensorFlow.js) to generate accurate and dynamic recommendations, improving conversion rates and user experience.
-
-## 🛠 Tech Stack
-
-- Node.js
-- MongoDB
-- REST API architecture
-- TensorFlow.js (for ML models)
-
-## 🎯 Vision
-
-To redefine e-commerce personalization by making intelligent product recommendations faster, smarter, and more human-like.
-
----
-
-NeuroCart transforms data into decisions — delivering the right product, to the right user, at the right time.
-
-
-
-
-
-___________________________________________________________________________
-
-
-
-
-
-# E-commerce Recommendation System (MongoDB + API Architecture)
-
-A web application that displays user profiles and product listings, with the ability to track user purchases and serve as a foundation for future machine learning recommendations using TensorFlow.js. 
-
-The system has been evolved into a more robust and production-oriented architecture, now powered by a backend API and MongoDB for scalable data management.
-
-
-## Demo
-
-![Demo](demo.png)
-
-## Overview
-
-Originally built using static JSON files, this project has been upgraded to a professional architecture that includes:
-
-- A Node.js + Express API layer
-- MongoDB as the primary data source
-- Clear separation between frontend and backend
-
-This evolution improves scalability, maintainability, and aligns the application with real-world development standards.
+- Node.js and Express API for users and products
+- MongoDB persistence and seed script
+- Browser-side model training with TensorFlow.js
+- Web Worker isolation for model training and recommendation
+- Feature encoding for category, color, price and age
+- Dense neural network with binary classification output
+- Recommendation ranking by predicted compatibility score
+- Training progress and visualization hooks through TFVisor
+- Static frontend served by the same Node.js application
 
 ## Architecture
 
-- **Frontend**: Static files (HTML, JS) served via Express
-- **Backend API**: Node.js with Express
-- **Database**: MongoDB (`ecommerce-aula`)
-- **Collections**: `users` and `products`
+```text
+Browser
+  |
+  | HTTP
+  v
+Express API
+  |
+  v
+MongoDB
 
-## Project Structure
-
-- `index.html` → Frontend entry point  
-- `src/api/` → Backend API (Express + MongoDB)  
-- `src/service/` → Services consuming API endpoints  
-- `src/workers/` → Background processing (ML training)  
-- `sql/` → Initial data for MongoDB  
-- `data/` → Legacy JSON files (deprecated)
-
-## MongoDB Setup
-
-### 1. Create Database
-
-```
-ecommerce-aula
-```
-
-### 2. Create Collections
-
-```
-users
-products
+Browser UI
+  |
+  v
+Web Worker
+  |
+  v
+TensorFlow.js model
+  |
+  v
+Ranked product recommendations
 ```
 
-### 3. Import Initial Data
+The API is responsible for data access. Model training and inference currently happen in the browser.
 
-Data is available inside `/sql`.
+## Recommendation flow
 
-#### MongoDB Compass
-1. Connect to MongoDB
-2. Create database `ecommerce-aula`
-3. Create collections
-4. Import JSON files
+1. User and product data are loaded from the API.
+2. Product features are normalized and encoded.
+3. Purchase history is converted into user vectors.
+4. Training samples combine user and product vectors.
+5. A small dense neural network is trained with TensorFlow.js.
+6. The selected user is paired with every product.
+7. Prediction scores are sorted to generate recommendations.
 
+This is intentionally a learning-oriented implementation. It is not presented as a production recommendation service.
 
-## Environment Configuration
+## Running locally
 
-Configure `.env`:
+Requirements:
 
+- Node.js 22 or newer
+- Docker with Docker Compose, or a local MongoDB instance
+
+Start MongoDB:
+
+```bash
+docker compose up -d
 ```
-MONGODB_URI=mongodb://192.168.0.128:27017
-MONGODB_DB_NAME=ecommerce-aula
-PORT=3000
+
+Create the environment file:
+
+```bash
+cp .env.example .env
 ```
 
-## Installation
+Install dependencies and seed the database:
 
-```
-npm install
-```
-
-## Seed (optional)
-
-```
+```bash
+npm ci
 npm run seed
 ```
 
-## Run
+Start the application:
 
-```
+```bash
 npm start
 ```
 
-Access:
+Open:
 
-```
+```text
 http://localhost:3000
 ```
 
-## API Endpoints
+## Environment
 
-- GET `/api/health`
-- GET `/api/users`
-- GET `/api/products`
+```env
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017
+MONGODB_DB_NAME=ecommerce-aula
+```
 
-## Key Improvements
+## API
 
-- Migration from static JSON to MongoDB
-- Introduction of REST API layer
-- Better scalability and maintainability
-- Real-world architecture ready for ML integration
+```text
+GET  /api/health
+GET  /api/users
+GET  /api/users/:id
+POST /api/users
+PUT  /api/users/:id
+GET  /api/products
+GET  /api/products/:id
+```
 
-## Future Enhancements
+## Verification
 
-- TensorFlow.js recommendation engine
-- Behavioral analysis
-- Personalized recommendations
+Run the syntax checks used by CI:
+
+```bash
+npm run check
+```
+
+## Current limitations
+
+- Training data is intentionally small and synthetic.
+- The model is retrained in the browser instead of being served as a versioned model artifact.
+- Recommendation quality is not yet evaluated against a formal offline dataset.
+- Authentication, authorization and multi-tenant isolation are outside the scope of this prototype.
+- Product candidate retrieval is exhaustive. A larger catalog would require a separate retrieval stage before model scoring.
+
+These limitations are part of the reason I keep this repository as an engineering experiment rather than describing it as a production system.
+
+## Project background
+
+This repository started from a recommendation-system exercise from the Software Engineering with Applied AI course material published by UNIPDS and Erick Wendel. I used that base to explore the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
+
+Upstream learning material:
+https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
+
+The original course attribution is preserved here intentionally.
+
+## Language
+
+Brazilian Portuguese version: [README.pt-BR.md](README.pt-BR.md)
