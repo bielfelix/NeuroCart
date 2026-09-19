@@ -1,21 +1,23 @@
 {
-  "name": "ecommerce-recomendations-ml-api-mongodb",
+  "name": "neurocart",
   "version": "1.1.0",
-  "description": "E-commerce app with TensorFlow.js-based ML foundation, powered by a scalable API and MongoDB backend.",
+  "description": "Recommendation-system prototype using TensorFlow.js, a Node.js API and MongoDB.",
   "main": "src/api/server.js",
   "type": "module",
   "scripts": {
     "start": "node ./src/api/server.js",
     "dev": "node --watch ./src/api/server.js",
-    "seed": "node ./src/api/seed.js"
+    "seed": "node ./src/api/seed.js",
+    "check": "node --check src/api/server.js && node --check src/api/seed.js && node --check src/index.js && node --check src/workers/modelTrainingWorker.js"
   },
   "keywords": [
-    "ecommerce",
-    "tensorflow",
-    "recommendation",
-    "javascript"
+    "recommendation-system",
+    "tensorflow-js",
+    "machine-learning",
+    "mongodb",
+    "nodejs"
   ],
-  "author": "",
+  "author": "Gabriel Felix",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
