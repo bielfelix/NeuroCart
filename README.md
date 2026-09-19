@@ -132,7 +132,7 @@ These limitations are part of the reason I keep this repository as an engineerin
 
 ## Project background
 
-This repository started from a recommendation-system exercise from the Software Engineering with Applied AI source material published by UNIPDS and Erick Wendel. I used that base to explore the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
+This repository originated from a recommendation-system reference implementation in the Software Engineering with Applied AI source material published by UNIPDS and Erick Wendel. I used that base to implement and evaluate the recommendation flow and extended the project with a MongoDB-backed API, persistence, seed workflow and repository organization.
 
 Upstream source repository:
 https://github.com/unipds-engenharia-de-ia-aplicada/engenharia-de-software-com-ia-aplicada
